@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caio Patrick — Estudante de Direito | Direito Penal</title>
+<meta name="description" content="Caio Patrick, estudante de Direito (7º período), com vivência prática em Direito Penal e Processual Penal — estágios, comissão da OAB e grupos de estudo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0b0e13;
+    --ink-2:#141a23;
+    --ink-3:#1d2530;
+    --hair:#2a3340;
+    --gold:#c9a247;
+    --gold-soft:#e9d49a;
+    --oxblood:#7c2230;
+    --oxblood-light:#9c2f3f;
+    --parchment:#f1ead9;
+    --paper:#faf7f0;
+    --ash:#9aa3b0;
+    --ash-dim:#6b7280;
+    --text-dark:#1a1814;
+    --serif:'Fraunces', serif;
+    --sans:'Inter', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+    --max:1180px;
+    --read:700px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--ash);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--gold);display:inline-block;}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;color:var(--parchment);letter-spacing:-0.01em;}
+  section{position:relative;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+    padding:16px 28px;border-radius:2px;border:1px solid transparent;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1), background .3s, border-color .3s, color .3s;
+    cursor:pointer;
+  }
+  .btn-solid{background:var(--oxblood);color:var(--parchment);}
+  .btn-solid:hover{background:var(--oxblood-light);transform:translateY(-2px);}
+  .btn-outline{border-color:var(--gold);color:var(--gold-soft);}
+  .btn-outline:hover{background:rgba(201,162,71,.08);transform:translateY(-2px);}
+  .btn svg{width:14px;height:14px;flex-shrink:0;}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.8,.2,1);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ===== NAV ===== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;
+    transition:background .4s ease, padding .4s ease, border-color .4s ease;
+    border-bottom:1px solid transparent;
+  }
+  .nav.scrolled{background:rgba(11,14,19,.92);backdrop-filter:blur(10px);padding:14px 0;border-color:var(--hair);}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand-mark{
+    width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif);font-weight:700;color:var(--gold);font-size:15px;
+  }
+  .brand-name{font-family:var(--serif);font-size:18px;color:var(--parchment);letter-spacing:.01em;}
+  .brand-name span{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--ash-dim);text-transform:uppercase;margin-top:2px;}
+  .nav-links{display:flex;gap:38px;align-items:center;}
+  .nav-links a{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash);position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease;}
+  .nav-links a:hover{color:var(--parchment);}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a.is-tab-active{color:var(--gold-soft);}
+  .nav-links a.is-tab-active::after{width:100%;background:var(--gold-soft);}
+  .nav-cta{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink);background:var(--gold);padding:11px 20px;border-radius:2px;text-transform:uppercase;transition:background .3s;}
+  .nav-cta:hover{background:var(--gold-soft);}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:6px;}
+  .burger span{width:24px;height:1.5px;background:var(--parchment);}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;align-items:stretch;
+    padding-top:110px;
+    background:
+      radial-gradient(900px 500px at 0% 0%, rgba(124,34,48,.18), transparent 60%),
+      var(--ink);
+  }
+  .hero-content{display:flex;flex-direction:column;justify-content:center;padding:40px 0 80px 32px;max-width:600px;}
+  .hero-title{font-size:clamp(48px,6.2vw,84px);line-height:.98;color:var(--parchment);}
+  .hero-title em{font-style:italic;color:var(--gold);font-weight:500;}
+  .hero-role{
+    font-family:var(--mono);font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-soft);margin-top:22px;display:flex;align-items:center;gap:12px;
+  }
+  .hero-role::before{content:"";width:34px;height:1px;background:var(--gold-soft);}
+  .hero-tagline{font-size:18px;color:var(--ash);max-width:480px;margin:26px 0 38px;font-weight:400;line-height:1.7;}
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+  .hero-meta{display:flex;gap:36px;margin-top:64px;padding-top:28px;border-top:1px solid var(--hair);}
+  .hero-meta div{font-family:var(--mono);font-size:11px;color:var(--ash-dim);letter-spacing:.08em;text-transform:uppercase;}
+  .hero-meta strong{display:block;font-family:var(--serif);font-size:20px;color:var(--parchment);font-weight:600;margin-bottom:4px;letter-spacing:0;text-transform:none;}
+
+  .hero-media{position:relative;overflow:hidden;}
+  .hero-media img{
+    width:100%;height:100%;object-fit:cover;object-position:50% 18%;
+    filter:grayscale(.15) contrast(1.05);
+  }
+  .hero-media::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg, var(--ink) 0%, rgba(11,14,19,.55) 16%, transparent 42%),
+               linear-gradient(0deg, var(--ink) 0%, transparent 30%);
+  }
+  .hero-stamp{
+    position:absolute;left:-46px;bottom:64px;width:128px;height:128px;z-index:5;
+    filter:drop-shadow(0 6px 18px rgba(0,0,0,.5));
+  }
+  .hero-stamp .ring{animation:spin 26s linear infinite;transform-origin:64px 64px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  @media (prefers-reduced-motion: reduce){.hero-stamp .ring{animation:none;}}
+
+  /* ===== SECTION HEADS ===== */
+  .section-pad{padding:130px 0;}
+  .head-row{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap;}
+  .head-row h2{font-size:clamp(32px,3.4vw,46px);max-width:560px;line-height:1.08;}
+  .head-row p{max-width:340px;font-size:15px;color:var(--ash-dim);padding-bottom:6px;}
+
+  /* ===== ABOUT ===== */
+  .about{background:var(--ink-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center;}
+  .about-photo{position:relative;}
+  .about-photo .frame{position:relative;border:1px solid var(--hair);padding:14px;}
+  .about-photo img{width:100%;filter:grayscale(.1) contrast(1.03);}
+  .about-photo .tag{
+    position:absolute;bottom:-18px;right:-18px;background:var(--oxblood);color:var(--parchment);
+    font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+    padding:14px 18px;border:1px solid var(--ink);
+  }
+  .about-text p{font-size:16.5px;color:var(--ash);margin-bottom:20px;max-width:520px;}
+  .about-text p strong{color:var(--parchment);font-weight:600;}
+  .quote-card{
+    margin-top:38px;border-left:2px solid var(--gold);padding:6px 0 6px 26px;
+  }
+  .quote-card p{font-family:var(--serif);font-style:italic;font-size:19px;color:var(--gold-soft);line-height:1.5;margin:0;}
+  .quote-card cite{display:block;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash-dim);margin-top:12px;}
+
+  /* ===== AREAS ===== */
+  .areas{background:var(--ink);}
+  .areas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  .area-card{
+    background:var(--ink);padding:32px 26px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;
+    transition:background .4s ease;
+  }
+  .area-card:hover{background:var(--ink-2);}
+  .area-card:last-child{grid-column:span 2;}
+  .area-card .num{font-family:var(--mono);font-size:10.5px;color:var(--gold);letter-spacing:.08em;}
+  .area-card h3{font-size:19px;font-weight:600;color:var(--parchment);margin:22px 0 10px;line-height:1.25;}
+  .area-card p{font-size:13px;color:var(--ash-dim);}
+
+  /* ===== METHOD ===== */
+  .method{background:var(--ink-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
+  .timeline{position:relative;padding-left:0;}
+  .tl-item{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:34px 0;border-top:1px solid var(--hair);}
+  .tl-item:last-child{border-bottom:1px solid var(--hair);}
+  .tl-num{font-family:var(--serif);font-size:34px;color:var(--gold);font-weight:300;}
+  .tl-body h3{font-size:20px;font-weight:600;color:var(--parchment);margin-bottom:8px;}
+  .tl-body p{font-size:14.5px;color:var(--ash-dim);max-width:560px;}
+
+  /* ===== WHY / DIFFERENTIATORS ===== */
+  .why{background:var(--ink);}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .why-item{border-top:1px solid var(--hair);padding-top:22px;}
+  .why-item h3{font-size:16px;font-weight:600;color:var(--parchment);margin-bottom:10px;letter-spacing:0;font-family:var(--sans);}
+  .why-item p{font-size:13.5px;color:var(--ash-dim);}
+  .why-icon{width:22px;height:22px;color:var(--gold);margin-bottom:18px;}
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials{background:var(--paper);color:var(--text-dark);}
+  .testimonials .eyebrow{color:var(--oxblood);}
+  .testimonials .eyebrow::before{background:var(--oxblood);}
+  .testimonials h2{color:var(--text-dark);}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e2d9c4;border:1px solid #e2d9c4;}
+  .t-card{background:var(--paper);padding:34px 30px;display:flex;flex-direction:column;justify-content:space-between;min-height:230px;}
+  .t-card p{font-family:var(--serif);font-style:italic;font-size:17px;line-height:1.55;color:#34302a;}
+  .t-foot{display:flex;align-items:center;gap:12px;margin-top:24px;}
+  .t-avatar{width:34px;height:34px;border-radius:50%;background:var(--oxblood);color:var(--parchment);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;}
+  .t-foot div{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:#7a7468;text-transform:uppercase;}
+  .t-note{margin-top:28px;font-family:var(--mono);font-size:11.5px;color:#9b9485;}
+
+  /* ===== CONTACT ===== */
+  .contact{background:var(--ink);text-align:center;padding:150px 0;}
+  .contact h2{font-size:clamp(34px,5vw,58px);max-width:780px;margin:0 auto 22px;line-height:1.08;}
+  .contact p{max-width:480px;margin:0 auto 44px;font-size:16px;color:var(--ash);}
+  .contact-actions{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:60px;}
+  .contact-info{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;}
+  .contact-info div{font-family:var(--mono);font-size:12px;letter-spacing:.05em;}
+  .contact-info span{display:block;color:var(--ash-dim);text-transform:uppercase;letter-spacing:.12em;font-size:10px;margin-bottom:8px;}
+  .contact-info strong{color:var(--gold-soft);font-weight:500;font-size:14px;}
+
+  /* ===== FOOTER ===== */
+  footer{border-top:1px solid var(--hair);padding:40px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;}
+  footer .f-left{display:flex;align-items:center;gap:14px;}
+  footer .f-left .brand-mark{width:32px;height:32px;font-size:13px;}
+  footer p{font-family:var(--mono);font-size:11px;color:var(--ash-dim);letter-spacing:.04em;}
+  .f-links{display:flex;gap:24px;}
+  .f-links a{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ash-dim);}
+  .f-links a:hover{color:var(--gold);}
+
+  .float-wa{
+    position:fixed;right:26px;bottom:26px;z-index:90;
+    width:54px;height:54px;border-radius:50%;background:var(--oxblood);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 8px 24px rgba(0,0,0,.45);
+    transition:transform .3s ease, background .3s ease;
+  }
+  .float-wa:hover{transform:translateY(-3px);background:var(--oxblood-light);}
+  .float-wa svg{width:24px;height:24px;color:var(--parchment);}
+
+  /* ===== ARTICLES ===== */
+  .articles{background:var(--ink-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);}
+  .articles-feature{
+    display:grid;grid-template-columns:1.25fr .75fr;
+    border:1px solid var(--hair);margin-bottom:48px;
+  }
+  .af-content{padding:48px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--hair);}
+  .tag-pill{
+    align-self:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.14em;
+    color:var(--ink);background:var(--gold);padding:5px 11px;text-transform:uppercase;margin-bottom:18px;
+  }
+  .af-content .eyebrow{margin-bottom:14px;}
+  .af-content h3{font-size:clamp(24px,2.6vw,32px);line-height:1.18;margin-bottom:16px;}
+  .af-content > p{font-size:15.5px;color:var(--ash);max-width:480px;margin-bottom:26px;}
+  .af-meta{font-family:var(--mono);font-size:11.5px;color:var(--ash-dim);letter-spacing:.06em;text-transform:uppercase;margin-bottom:26px;}
+  .af-visual{position:relative;overflow:hidden;background:var(--ink-3);}
+  .af-photo{width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:grayscale(.2) contrast(1.05);display:block;}
+  .af-visual::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg, rgba(11,14,19,.55) 0%, transparent 40%);}
+  .af-stamp{position:absolute;right:16px;bottom:16px;width:62px;height:62px;z-index:2;filter:drop-shadow(0 4px 10px rgba(0,0,0,.55));}
+
+  .articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  .article-card{
+    background:var(--ink-2);padding:30px 26px;min-height:230px;display:flex;flex-direction:column;justify-content:space-between;
+    transition:background .4s ease;
+  }
+  .article-card:hover{background:var(--ink-3);}
+  .article-card .eyebrow{font-size:10.5px;margin-bottom:0;}
+  .article-card h4{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--parchment);line-height:1.3;margin:18px 0 10px;}
+  .article-card p{font-size:13px;color:var(--ash-dim);margin-bottom:18px;}
+  .article-card .ac-foot{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ash-dim);letter-spacing:.05em;text-transform:uppercase;}
+  .badge-soon{color:var(--gold);}
+
+  /* ===== ARTICLE VIEW (in-page) ===== */
+  .is-hidden{display:none !important;}
+  .read{max-width:var(--read);margin:0 auto;padding:0 32px;}
+  .back-link{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ash-dim);display:inline-flex;align-items:center;gap:8px;}
+  .back-link:hover{color:var(--gold-soft);}
+  .back-link svg{width:13px;height:13px;}
+
+  .article-hero{padding:170px 0 60px;border-bottom:1px solid var(--hair);}
+  .article-hero .wrap{text-align:center;}
+  .article-hero .eyebrow{justify-content:center;margin:0 auto 22px;}
+  .article-hero h1{font-size:clamp(32px,5vw,52px);line-height:1.1;max-width:820px;margin:0 auto 22px;}
+  .article-dek{max-width:620px;margin:0 auto 36px;font-size:18px;color:var(--ash);}
+  .byline{display:flex;align-items:center;justify-content:center;gap:14px;}
+  .byline img{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 15%;}
+  .byline-text{font-family:var(--mono);font-size:11.5px;color:var(--ash-dim);letter-spacing:.04em;text-align:left;}
+  .byline-text strong{display:block;color:var(--parchment);font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:0;margin-bottom:2px;}
+
+  .article-body{padding:70px 0 40px;}
+  .article-body .read > p{font-size:17.5px;color:var(--ash);margin-bottom:24px;}
+  .article-body h2{font-size:26px;margin:52px 0 18px;}
+  .article-body .read > p:first-of-type{font-size:20px;color:var(--parchment);font-weight:400;}
+
+  .callout{background:var(--ink-2);border:1px solid var(--hair);border-left:3px solid var(--gold);padding:26px 30px;margin:36px 0;}
+  .callout .eyebrow{margin-bottom:14px;}
+  .callout ul{padding-left:18px;}
+  .callout li{font-size:15px;color:var(--ash);margin-bottom:10px;line-height:1.55;}
+  .callout li::marker{color:var(--gold);}
+
+  .article-body blockquote{margin:46px 0;padding:4px 0 4px 30px;border-left:2px solid var(--oxblood-light);}
+  .article-body blockquote p{font-family:var(--serif);font-style:italic;font-size:23px;color:var(--gold-soft);line-height:1.45;margin-bottom:12px !important;}
+  .article-body blockquote cite{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ash-dim);font-style:normal;}
+
+  .article-body .read > ol{padding-left:20px;margin:24px 0 32px;}
+  .article-body .read > ol li{font-size:16.5px;color:var(--ash);margin-bottom:14px;padding-left:6px;}
+  .article-body .read > ol li strong{color:var(--parchment);}
+
+  .author-box{margin-top:64px;border-top:1px solid var(--hair);padding-top:44px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:flex-start;}
+  .author-box img{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:50% 15%;border:1px solid var(--hair);}
+  .author-box h3{font-size:18px;margin-bottom:8px;}
+  .author-box p{font-size:14.5px;color:var(--ash-dim);margin-bottom:14px;max-width:480px;}
+
+  .article-cta{background:var(--ink-2);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:80px 0;text-align:center;}
+  .article-cta h2{font-size:clamp(26px,3.4vw,36px);max-width:600px;margin:0 auto 18px;}
+  .article-cta p{max-width:460px;margin:0 auto 32px;font-size:15.5px;color:var(--ash);}
+  .article-cta .ac-actions{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
+
+  .related .eyebrow{margin-bottom:34px;}
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  .r-card{background:var(--ink);padding:28px 24px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;transition:background .4s ease;}
+  .r-card:hover{background:var(--ink-2);}
+  .r-card .eyebrow{font-size:10px;margin-bottom:0;}
+  .r-card h4{font-family:var(--serif);font-weight:600;font-size:16.5px;color:var(--parchment);margin:14px 0 0;line-height:1.3;}
+  .r-card span{font-family:var(--mono);font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:.06em;}
+
+  @media (max-width:760px){
+    .article-hero{padding:140px 0 50px;}
+    .article-body{padding:50px 0 20px;}
+    .read{padding:0 24px;}
+    .related-grid{grid-template-columns:1fr;}
+    .author-box{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:980px){
+    .articles-feature{grid-template-columns:1fr;}
+    .af-content{border-right:none;border-bottom:1px solid var(--hair);padding:36px 28px;}
+    .af-visual{min-height:280px;}
+    .articles-grid{grid-template-columns:1fr;}
+  }
+
+  @media (max-width:980px){
+    .nav-links,.nav-cta{display:none;}
+    .burger{display:flex;}
+    .hero{grid-template-columns:1fr;}
+    .hero-media{height:46vh;order:-1;margin-top:0;}
+    .hero-content{padding:50px 24px 70px;max-width:none;}
+    .hero-stamp{display:none;}
+    .about-grid{grid-template-columns:1fr;gap:46px;}
+    .areas-grid{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);gap:30px;}
+    .t-grid{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:56px 1fr;}
+    .section-pad{padding:90px 0;}
+    .wrap{padding:0 22px;}
+    .contact{padding:100px 0;}
+    .contact-info{gap:28px;}
+  }
+  @media (max-width:560px){
+    .areas-grid{grid-template-columns:1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .hero-meta{gap:24px;}
+  }
+  @media (max-width:700px){
+    /* hero already surfaces a direct WhatsApp CTA, so the floating button is redundant
+       and risks overlapping content on short mobile viewports */
+    .float-wa{display:none;}
+  }
+
+  /* mobile nav overlay */
+  .mnav{
+    position:fixed;inset:0;background:var(--ink);z-index:200;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px;
+    transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);
+  }
+  .mnav.open{transform:translateX(0);}
+  .mnav a{font-family:var(--serif);font-size:30px;color:var(--parchment);}
+  .mnav .close{position:absolute;top:26px;right:26px;background:none;border:none;color:var(--parchment);font-size:26px;cursor:pointer;}
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <span class="brand-mark">CP</span>
+      <span class="brand-name">Caio Patrick<span>Estudante de Direito</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#atuacao">Estudo</a>
+      <a href="#metodo">Trajetória</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#contato">Contato</a>
+    </div>
+    <a href="#contato" class="nav-cta">Fale comigo</a>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mnav" id="mnav">
+  <button class="close" id="closeBtn" aria-label="Fechar menu">&times;</button>
+  <a href="#sobre">Sobre</a>
+  <a href="#atuacao">Estudo</a>
+  <a href="#metodo">Trajetória</a>
+  <a href="#artigos">Artigos</a>
+  <a href="#contato">Contato</a>
+</div>
+
+<main id="site-view">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-content">
+      <h1 class="hero-title">Caio<br><em>Patrick</em></h1>
+      <div class="hero-role">Estudante de Direito · Direito Penal</div>
+      <p class="hero-tagline">7º período, com os pés já dentro da rotina da Justiça Criminal — em estágios, comissões e grupos de estudo dedicados ao Direito Penal e Processual Penal.</p>
+      <div class="hero-actions">
+        <a href="#contato" class="btn btn-solid">
+          Fale comigo
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="https://wa.me/5521981176142" class="btn btn-outline" target="_blank" rel="noopener">
+          Falar agora
+        </a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>Formação</strong>7º período</div>
+        <div><strong>Experiência</strong>2 estágios na área penal</div>
+        <div><strong>Idiomas</strong>Inglês fluente</div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="caio.jpeg" alt="Caio Patrick, estudante de Direito">
+      <svg class="hero-stamp" viewBox="0 0 128 128">
+        <g class="ring">
+          <circle cx="64" cy="64" r="60" fill="none" stroke="#c9a247" stroke-width="1"/>
+          <path id="stampCircle" d="M 64 16 A 48 48 0 1 1 63.9 16" fill="none"/>
+          <text font-family="IBM Plex Mono" font-size="8.6" letter-spacing="3" fill="#c9a247">
+            <textPath href="#stampCircle" startOffset="0%">DIREITO PENAL · CAIO PATRICK · EM FORMAÇÃO · </textPath>
+          </text>
+        </g>
+        <circle cx="64" cy="64" r="30" fill="#0b0e13" stroke="#7c2230" stroke-width="1"/>
+        <text x="64" y="60" text-anchor="middle" font-family="Fraunces" font-weight="700" font-size="18" fill="#e9d49a">CP</text>
+        <text x="64" y="76" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.5" letter-spacing="1.5" fill="#9aa3b0">7º PER.</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section-pad" id="sobre">
+    <div class="wrap about-grid">
+      <div class="about-photo reveal">
+        <div class="frame">
+          <img src="caio.jpeg" alt="Caio Patrick">
+        </div>
+        <div class="tag">7º PERÍODO</div>
+      </div>
+      <div class="about-text reveal">
+        <div class="eyebrow">Quem sou eu</div>
+        <h2 style="font-size:clamp(28px,3vw,38px);margin-bottom:24px;">Direito Penal não se aprende só nos livros.</h2>
+        <p><strong>Caio Patrick</strong> está no 7º período do curso de Direito, com foco em Direito Penal e Processual Penal. Além da sala de aula, já viveu a rotina da Justiça Criminal por dentro — em estágios, comissões e grupos de estudo dedicados ao tema.</p>
+        <p>Fluente em inglês, acompanha também doutrina e jurisprudência internacional sobre Direito Penal, e é colaborador da Comissão de Direito Penal Militar da OAB de Jacarepaguá.</p>
+        <div class="quote-card">
+          <p>"São assegurados o contraditório e ampla defesa, com os meios e recursos a ela inerentes."</p>
+          <cite>Art. 5º, LV — Constituição Federal</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="areas section-pad" id="atuacao">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <h2>Áreas de estudo</h2>
+        <p>Temas de Direito Penal e Processual Penal que venho estudando e aprofundando na graduação, nos estágios e nos grupos de estudo.</p>
+      </div>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="areas-grid reveal">
+        <div class="area-card">
+          <span class="num">LEI 7.210/84</span>
+          <h3>Execução Penal</h3>
+          <p>Cumprimento de pena, progressão de regime e seus incidentes.</p>
+        </div>
+        <div class="area-card">
+          <span class="num">STF · STJ</span>
+          <h3>Tribunais Superiores</h3>
+          <p>Recursos especiais e extraordinários, e o papel da jurisprudência.</p>
+        </div>
+        <div class="area-card">
+          <span class="num">LEI 11.340/2006</span>
+          <h3>Violência doméstica — defesa do homem</h3>
+          <p>Garantias processuais do acusado nos casos da Lei Maria da Penha.</p>
+        </div>
+        <div class="area-card">
+          <span class="num">LEI 11.343/2006</span>
+          <h3>Tráfico de drogas</h3>
+          <p>A linha entre uso e tráfico, e os critérios usados pela Justiça.</p>
+        </div>
+        <div class="area-card">
+          <span class="num">CP · ARTS. 213–234-C</span>
+          <h3>Crimes contra a dignidade sexual</h3>
+          <p>Estupro, importunação sexual e demais crimes do Título VI do Código Penal.</p>
+        </div>
+        <div class="area-card">
+          <span class="num">LEI 9.613/98</span>
+          <h3>Crimes de colarinho branco</h3>
+          <p>Lavagem de dinheiro, crimes financeiros e tributários.</p>
+        </div>
+        <div class="area-card">
+          <span class="num">CPP · ARTS. 406–497</span>
+          <h3>Tribunal do Júri</h3>
+          <p>Da pronúncia ao julgamento popular: como funciona o rito do júri.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAJETÓRIA -->
+  <section class="method section-pad" id="metodo">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <h2>Trajetória até aqui</h2>
+        <p>Da sala de aula à prática — um passo de cada vez.</p>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-num">01</div>
+          <div class="tl-body">
+            <h3>Graduação em Direito</h3>
+            <p>Atualmente no 7º período, com foco em Direito Penal e Processual Penal.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">02</div>
+          <div class="tl-body">
+            <h3>Estágio no Juizado de Violência Doméstica</h3>
+            <p>Vivência prática do rito processual em casos de violência doméstica.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">03</div>
+          <div class="tl-body">
+            <h3>Estágio na Vara de Execuções Penais</h3>
+            <p>Acompanhamento da fase de cumprimento de pena e de seus incidentes.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">04</div>
+          <div class="tl-body">
+            <h3>Comissão de Direito Penal Militar — OAB Jacarepaguá</h3>
+            <p>Colaborador da comissão, aprofundando temas de Direito Penal Militar.</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-num">05</div>
+          <div class="tl-body">
+            <h3>Grupos de estudo e debate</h3>
+            <p>Membro da Nova Geração de Criminalista, do Aparte Criminal e da Defesa Plena.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY -->
+  <section class="why section-pad">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <h2>O que tenho buscado construir</h2>
+        <p>Não é sobre atalhos. É sobre aprender o Direito Penal por dentro, com profundidade.</p>
+      </div>
+      <div class="why-grid reveal">
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="11" width="18" height="10" rx="1"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <h3>Comprometimento com os estudos</h3>
+          <p>Foco constante em Direito Penal e Processual Penal, da teoria à prática nos estágios.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <h3>Vivência prática real</h3>
+          <p>Experiência em juizado e vara de execuções penais, além da sala de aula.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          <h3>Atualização constante</h3>
+          <p>Participação ativa em comissão da OAB e grupos de estudo voltados à área criminal.</p>
+        </div>
+        <div class="why-item">
+          <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7l8-4z"/></svg>
+          <h3>Inglês fluente</h3>
+          <p>Acesso direto a jurisprudência, doutrina e debates internacionais sobre Direito Penal.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTICLES -->
+  <section class="articles section-pad" id="artigos">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <h2>Direito explicado, sem juridiquês</h2>
+        <p>Análises e orientações sobre processo penal, escritas para quem precisa entender — não para impressionar.</p>
+      </div>
+
+      <div class="articles-feature reveal">
+        <div class="af-content">
+          <span class="tag-pill">Artigo em destaque</span>
+          <div class="eyebrow">Direito Processual Penal</div>
+          <h3>Preso em flagrante: o que acontece nas primeiras 24 horas</h3>
+          <p>O período entre a prisão e a audiência de custódia decide o rumo de todo o processo. Entenda os direitos garantidos por lei e por que cada hora importa.</p>
+          <div class="af-meta">Caio Patrick · 19 jun 2026 · 8 min de leitura</div>
+          <a href="#artigo-exemplo" class="btn btn-outline">
+            Ler artigo completo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="af-visual">
+          <img src="caio2.jpeg" alt="Caio Patrick estudando" class="af-photo">
+          <svg class="af-stamp" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="28" fill="#0b0e13" stroke="#7c2230" stroke-width="1.5"/>
+            <text x="30" y="28" text-anchor="middle" font-family="Fraunces" font-weight="700" font-size="13" fill="#e9d49a">CP</text>
+            <text x="30" y="41" text-anchor="middle" font-family="IBM Plex Mono" font-size="5.5" letter-spacing="1.5" fill="#9aa3b0">ARTIGO</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="articles-grid reveal">
+        <div class="article-card">
+          <div class="eyebrow">Processo Penal</div>
+          <h4>Prisão preventiva x temporária: qual a diferença?</h4>
+          <p>Dois tipos de prisão cautelar, dois conjuntos de regras — e prazos muito diferentes.</p>
+          <div class="ac-foot"><span>Em breve</span><span class="badge-soon">6 min</span></div>
+        </div>
+        <div class="article-card">
+          <div class="eyebrow">Tribunal do Júri</div>
+          <h4>Como funciona um julgamento no júri popular</h4>
+          <p>Da pronúncia ao veredito: as etapas que definem um processo de competência do júri.</p>
+          <div class="ac-foot"><span>Em breve</span><span class="badge-soon">10 min</span></div>
+        </div>
+        <div class="article-card">
+          <div class="eyebrow">Violência Doméstica</div>
+          <h4>Lei Maria da Penha: o que muda no processo penal</h4>
+          <p>Medidas protetivas, procedimento especial e os efeitos práticos para a defesa.</p>
+          <div class="ac-foot"><span>Em breve</span><span class="badge-soon">7 min</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contato">
+    <div class="wrap reveal">
+      <div class="eyebrow" style="justify-content:center;">Vamos conversar</div>
+      <h2>Vamos trocar uma ideia sobre Direito Penal?</h2>
+      <p>Estou sempre aberto a conversar sobre estágio, pesquisa ou oportunidades na área penal.</p>
+      <div class="contact-actions">
+        <a href="https://wa.me/5521981176142" class="btn btn-solid" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a href="tel:+5521981176142" class="btn btn-outline">Ligar agora</a>
+      </div>
+      <div class="contact-info">
+        <div><span>Telefone</span><strong>(21) 98117-6142</strong></div>
+        <div><span>E-mail</span><strong>contato@caiopatrick.com.br</strong></div>
+        <div><span>Disponibilidade</span><strong>Aberto a oportunidades</strong></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<main id="article-view" class="is-hidden">
+
+  <header class="article-hero">
+    <div class="wrap">
+      <a href="#artigos" class="back-link" style="margin-bottom:28px;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        <span>Todos os artigos</span>
+      </a>
+      <div class="eyebrow">Direito Processual Penal</div>
+      <h1>Preso em flagrante: o que acontece nas primeiras 24 horas</h1>
+      <p class="article-dek">O período entre a prisão e a audiência de custódia decide o rumo de todo o processo — e é nele que mais direitos costumam ser ignorados por desconhecimento.</p>
+      <div class="byline">
+        <img src="caio.jpeg" alt="Caio Patrick">
+        <div class="byline-text"><strong>Caio Patrick</strong>Estudante de Direito · 19 jun 2026 · 8 min de leitura</div>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <div class="read">
+      <p>Uma prisão em flagrante muda tudo em questão de minutos. Para quem está sendo preso — ou para a família que recebe a notícia — o choque inicial costuma ofuscar uma informação essencial: a lei garante prazos e direitos específicos para essas primeiras horas, e cada um deles tem peso direto no que acontece depois.</p>
+
+      <h2>O que caracteriza o flagrante</h2>
+      <p>O artigo 302 do Código de Processo Penal prevê quatro situações em que se considera alguém em flagrante delito: estar cometendo a infração; tê-la acabado de cometer; ser perseguido logo após, em situação que indique autoria; ou ser encontrado logo depois com objetos ou sinais que façam presumir a autoria. Fora dessas hipóteses, a prisão sem mandado judicial é, em regra, ilegal.</p>
+
+      <h2>Os direitos garantidos nessas primeiras horas</h2>
+      <p>A Constituição Federal e o Código de Processo Penal estabelecem garantias que valem desde o instante da abordagem. Entre as principais:</p>
+
+      <div class="callout">
+        <div class="eyebrow">Direitos imediatos</div>
+        <ul>
+          <li>Ser informado dos motivos da prisão e da identidade de quem a realiza.</li>
+          <li>Permanecer em silêncio, sem que isso seja interpretado contra o preso.</li>
+          <li>Comunicação imediata da prisão à família ou a pessoa indicada, e ao juiz competente.</li>
+          <li>Assistência de advogado desde o primeiro momento — constituído ou nomeado.</li>
+          <li>Não ser submetido a qualquer forma de violência ou tratamento degradante.</li>
+        </ul>
+      </div>
+
+      <p>Esses pontos não são formalidades burocráticas: a ausência de qualquer um deles pode ser usada, mais adiante, para questionar a legalidade da prisão.</p>
+
+      <h2>A audiência de custódia</h2>
+      <p>Em até 24 horas após a prisão, a pessoa deve ser apresentada a um juiz na chamada audiência de custódia. Nessa oportunidade, o magistrado avalia se a prisão foi legal, se houve qualquer tipo de abuso no momento da abordagem, e decide entre três caminhos: relaxar a prisão, quando ilegal; conceder liberdade provisória, com ou sem medidas cautelares; ou converter a prisão em flagrante em prisão preventiva, quando presentes seus requisitos.</p>
+
+      <blockquote>
+        <p>"Ninguém será preso senão em flagrante delito ou por ordem escrita e fundamentada de autoridade judiciária competente."</p>
+        <cite>Art. 5º, LXI — Constituição Federal</cite>
+      </blockquote>
+
+      <h2>Por que ter um advogado imediatamente faz diferença</h2>
+      <p>A diferença entre uma prisão revertida em poucas horas e uma prisão que se arrasta por meses muitas vezes está no que acontece antes da audiência de custódia: se houve excesso de prazo, se a comunicação foi feita corretamente, se o auto de prisão em flagrante tem vícios formais, se há elementos para pedir liberdade provisória já nessa primeira oportunidade. Um advogado presente desde o início consegue reunir esses argumentos a tempo — depois, muitos deles perdem força.</p>
+
+      <h2>O que fazer nesse momento</h2>
+      <ol>
+        <li><strong>Mantenha a calma e não resista à abordagem</strong>, mesmo que considere a prisão injusta — isso será discutido depois, com advogado.</li>
+        <li><strong>Exerça o direito ao silêncio</strong> sobre os fatos até falar com um advogado.</li>
+        <li><strong>Peça para acionar um advogado e um familiar</strong> imediatamente — é um direito, não um favor da autoridade.</li>
+        <li><strong>Não assine documentos</strong> cujo conteúdo não tenha sido explicado por seu advogado.</li>
+        <li><strong>Anote o que conseguir</strong>: horário da prisão, nomes e número de identificação dos agentes envolvidos.</li>
+      </ol>
+
+      <p>Nenhuma dessas medidas substitui orientação jurídica imediata — mas conhecer esses direitos antes de precisar deles é o primeiro passo para que não sejam esquecidos no momento em que mais importam.</p>
+
+      <div class="author-box">
+        <img src="caio.jpeg" alt="Caio Patrick">
+        <div>
+          <h3>Sobre o autor</h3>
+          <p>Caio Patrick está no 7º período do curso de Direito, com foco em Direito Penal e Processual Penal — experiência construída em estágios, comissão da OAB e grupos de estudo dedicados ao tema.</p>
+          <a href="#metodo" class="btn btn-outline" style="padding:12px 22px;">Conhecer minha trajetória</a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <section class="article-cta">
+    <div class="wrap">
+      <h2>Quer trocar uma ideia sobre o tema?</h2>
+      <p>Estou sempre aberto a conversar sobre Direito Penal, processo penal e oportunidades na área.</p>
+      <div class="ac-actions">
+        <a href="https://wa.me/5521981176142" class="btn btn-solid" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <a href="tel:+5521981176142" class="btn btn-outline">Ligar agora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="related section-pad">
+    <div class="wrap">
+      <div class="eyebrow">Leia também</div>
+      <div class="related-grid">
+        <a class="r-card" href="#artigos">
+          <span>Processo Penal</span>
+          <h4>Prisão preventiva x temporária: qual a diferença?</h4>
+        </a>
+        <a class="r-card" href="#artigos">
+          <span>Tribunal do Júri</span>
+          <h4>Como funciona um julgamento no júri popular</h4>
+        </a>
+        <a class="r-card" href="#artigos">
+          <span>Violência Doméstica</span>
+          <h4>Lei Maria da Penha: o que muda no processo penal</h4>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-left">
+      <span class="brand-mark">CP</span>
+      <p>Caio Patrick — Estudante de Direito<br>Direito Penal · © 2026</p>
+    </div>
+    <div class="f-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#atuacao">Estudo</a>
+      <a href="#artigos">Artigos</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/5521981176142" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.4.1-.1.2-.2.2-.4.1-.2 0-.3 0-.5 0-.1-.6-1.5-.8-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-.9.9-.9 2.2 0 1.3.9 2.6 1.1 2.8.1.2 1.9 2.9 4.6 4 .6.3 1.1.4 1.5.6.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
+</a>
+
+<script>
+  // nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // mobile nav
+  const mnav = document.getElementById('mnav');
+  document.getElementById('burgerBtn').addEventListener('click', () => mnav.classList.add('open'));
+  document.getElementById('closeBtn').addEventListener('click', () => mnav.classList.remove('open'));
+  mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
+
+  // reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // ===== view router: switches between the site and the in-page article =====
+  const siteView = document.getElementById('site-view');
+  const articleView = document.getElementById('article-view');
+  const SITE_TITLE = document.title;
+  const ARTICLE_TITLE = 'Preso em flagrante: o que acontece nas primeiras 24 horas — Caio Patrick';
+  const artigosTabLinks = document.querySelectorAll('a[href="#artigos"]');
+
+  function activateHash(hash, push){
+    const isArticle = hash === '#artigo-exemplo';
+    if (isArticle) {
+      siteView.classList.add('is-hidden');
+      articleView.classList.remove('is-hidden');
+      window.scrollTo(0, 0);
+      document.title = ARTICLE_TITLE;
+    } else {
+      articleView.classList.add('is-hidden');
+      siteView.classList.remove('is-hidden');
+      document.title = SITE_TITLE;
+      if (hash && hash !== '#top') {
+        requestAnimationFrame(() => {
+          document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth' });
+        });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }
+    artigosTabLinks.forEach(a => a.classList.toggle('is-tab-active', isArticle || hash === '#artigos'));
+    if (push) history.pushState(null, '', hash || '#top');
+    mnav.classList.remove('open');
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+      const hash = a.getAttribute('href');
+      if (!hash || hash === '#') return;
+      e.preventDefault();
+      activateHash(hash, true);
+    });
+  });
+
+  window.addEventListener('popstate', () => activateHash(location.hash || '#top', false));
+
+  // open directly into the article if the page is loaded/shared with that hash
+  if (location.hash === '#artigo-exemplo') activateHash('#artigo-exemplo', false);
+</script>
+
+</body>
+</html>
