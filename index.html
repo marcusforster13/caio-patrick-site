@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Caio Patrick — Estudante de Direito | Direito Penal</title>
-<meta name="description" content="Caio Patrick, estudante de Direito (7º período), com vivência prática em Direito Penal e Processual Penal — estágios, comissão da OAB e grupos de estudo.">
+<meta name="description" content="Caio Patrick, estudante de Direito (8º período), com vivência prática em Direito Penal e Processual Penal — estágios, comissão da OAB e grupos de estudo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -194,6 +194,12 @@
   .tl-body p{font-size:14.5px;color:var(--ash-dim);max-width:560px;}
 
   /* ===== WHY / DIFFERENTIATORS ===== */
+  .gallery{background:var(--ink);border-bottom:1px solid var(--hair);}
+  .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .gallery-item{margin:0;border:1px solid var(--hair);padding:14px;}
+  .gallery-item img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 30%;filter:grayscale(.1) contrast(1.03);}
+  .gallery-item figcaption{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ash);padding-top:14px;}
+  @media (max-width:700px){.gallery-grid{grid-template-columns:1fr;}}
   .why{background:var(--ink);}
   .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
   .why-item{border-top:1px solid var(--hair);padding-top:22px;}
@@ -422,7 +428,7 @@
     <div class="hero-content">
       <h1 class="hero-title">Caio<br><em>Patrick</em></h1>
       <div class="hero-role">Estudante de Direito · Direito Penal</div>
-      <p class="hero-tagline">7º período, com os pés já dentro da rotina da Justiça Criminal — em estágios, comissões e grupos de estudo dedicados ao Direito Penal e Processual Penal.</p>
+      <p class="hero-tagline">8º período, com os pés já dentro da rotina da Justiça Criminal — em estágios, comissões e grupos de estudo dedicados ao Direito Penal e Processual Penal.</p>
       <div class="hero-actions">
         <a href="#contato" class="btn btn-solid">
           Fale comigo
@@ -433,7 +439,7 @@
         </a>
       </div>
       <div class="hero-meta">
-        <div><strong>Formação</strong>7º período</div>
+        <div><strong>Formação</strong>8º período</div>
         <div><strong>Experiência</strong>2 estágios na área penal</div>
         <div><strong>Idiomas</strong>Inglês fluente</div>
       </div>
@@ -450,7 +456,7 @@
         </g>
         <circle cx="64" cy="64" r="30" fill="#0b0e13" stroke="#7c2230" stroke-width="1"/>
         <text x="64" y="60" text-anchor="middle" font-family="Fraunces" font-weight="700" font-size="18" fill="#e9d49a">CP</text>
-        <text x="64" y="76" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.5" letter-spacing="1.5" fill="#9aa3b0">7º PER.</text>
+        <text x="64" y="76" text-anchor="middle" font-family="IBM Plex Mono" font-size="6.5" letter-spacing="1.5" fill="#9aa3b0">8º PER.</text>
       </svg>
     </div>
   </section>
@@ -462,12 +468,12 @@
         <div class="frame">
           <img src="caio.jpeg" alt="Caio Patrick">
         </div>
-        <div class="tag">7º PERÍODO</div>
+        <div class="tag">8º PERÍODO</div>
       </div>
       <div class="about-text reveal">
         <div class="eyebrow">Quem sou eu</div>
         <h2 style="font-size:clamp(28px,3vw,38px);margin-bottom:24px;">Direito Penal não se aprende só nos livros.</h2>
-        <p><strong>Caio Patrick</strong> está no 7º período do curso de Direito, com foco em Direito Penal e Processual Penal. Além da sala de aula, já viveu a rotina da Justiça Criminal por dentro — em estágios, comissões e grupos de estudo dedicados ao tema.</p>
+        <p><strong>Caio Patrick</strong> está no 8º período do curso de Direito, com foco em Direito Penal e Processual Penal. Além da sala de aula, já viveu a rotina da Justiça Criminal por dentro — em estágios, comissões e grupos de estudo dedicados ao tema.</p>
         <p>Fluente em inglês, acompanha também doutrina e jurisprudência internacional sobre Direito Penal, e é colaborador da Comissão de Direito Penal Militar da OAB de Jacarepaguá.</p>
         <div class="quote-card">
           <p>"São assegurados o contraditório e ampla defesa, com os meios e recursos a ela inerentes."</p>
@@ -538,7 +544,7 @@
           <div class="tl-num">01</div>
           <div class="tl-body">
             <h3>Graduação em Direito</h3>
-            <p>Atualmente no 7º período, com foco em Direito Penal e Processual Penal.</p>
+            <p>Atualmente no 8º período, com foco em Direito Penal e Processual Penal.</p>
           </div>
         </div>
         <div class="tl-item">
@@ -569,6 +575,26 @@
             <p>Membro da Nova Geração de Criminalista, do Aparte Criminal e da Defesa Plena.</p>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery section-pad" id="em-acao">
+    <div class="wrap">
+      <div class="head-row reveal">
+        <h2>Em ação</h2>
+        <p>Palestras, eventos e entrevistas sobre Direito Penal e Processual Penal.</p>
+      </div>
+      <div class="gallery-grid reveal">
+        <figure class="gallery-item">
+          <img src="caio-palestra.jpg" alt="Caio Patrick discursando ao microfone em um púlpito" loading="lazy">
+          <figcaption>Palestra</figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <img src="caio-entrevista.jpg" alt="Caio Patrick dando entrevista em evento, visto no monitor da câmera" loading="lazy">
+          <figcaption>Entrevista em evento</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -745,7 +771,7 @@
         <img src="caio.jpeg" alt="Caio Patrick">
         <div>
           <h3>Sobre o autor</h3>
-          <p>Caio Patrick está no 7º período do curso de Direito, com foco em Direito Penal e Processual Penal — experiência construída em estágios, comissão da OAB e grupos de estudo dedicados ao tema.</p>
+          <p>Caio Patrick está no 8º período do curso de Direito, com foco em Direito Penal e Processual Penal — experiência construída em estágios, comissão da OAB e grupos de estudo dedicados ao tema.</p>
           <a href="#metodo" class="btn btn-outline" style="padding:12px 22px;">Conhecer minha trajetória</a>
         </div>
       </div>
